@@ -13,10 +13,19 @@ def artcode_i(s):
     Returns:
         list: la liste des tuples (caractère, nombre d'occurences)
     """
-    
-    # votre code ici
+    resultat=[]
+    occurence=0
+    lettre_courante=None 
+   
+    for lettre in s:
+         if(lettre_courante == lettre):
+            occurence+=1
 
-    return [ ]
+         else:
+            resultat.append((lettre_courante, occurence))
+            lettre_courante=lettre
+            occurence+=1
+    return resultat+[(lettre_courante,occurence)]
 
 
 def artcode_r(s):
@@ -27,16 +36,20 @@ def artcode_r(s):
 
     Returns:
         list: la liste des tuples (caractère, nombre d'occurences)
-    """
-    
-    # votre code ici
+        """
+    if not s :
+            return []
 
-    # cas de base
-    # recherche nombre de caractères identiques au premier
-    # appel récursif
+    lettre_courante=s[0]
+    occurence=1
+    for lettre in s:  
+        if lettre==lettre_courante :
+            occurence+=1
+        else :
+            break    
 
-    return []
-    
+        return [(lettre_courante,occurence)]+artcode_r(s[occurence:])
+        
 
 #### Fonction principale
 
